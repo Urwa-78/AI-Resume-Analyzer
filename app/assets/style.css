@@ -1,0 +1,262 @@
+/* =========================================================================
+   AI Resume Analyzer — Premium Glassmorphism Theme
+   Supports light + dark mode via the `.theme-dark` / `.theme-light` class
+   applied to the root app container.
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+}
+
+/* ---------- THEME VARIABLES (defaults = dark; overridden per-theme by main.py) ---------- */
+:root {
+  --bg-primary: #0b0e17;
+  --bg-secondary: #0f1420;
+  --bg-gradient: radial-gradient(circle at 15% 0%, #1b2340 0%, #0b0e17 45%), radial-gradient(circle at 85% 100%, #221334 0%, #0b0e17 55%);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --text-primary: #f3f5fb;
+  --text-secondary: #9aa3b8;
+  --accent: #7c5cff;
+  --accent-2: #22d3ee;
+  --success: #34d399;
+  --warning: #fbbf24;
+  --danger: #fb7185;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --input-bg: rgba(255,255,255,0.06);
+}
+
+/* ---------- GLOBAL ---------- */
+html, body, [class*="css"] {
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+.stApp {
+  background: var(--bg-gradient);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+h1, h2, h3, h4, .brand-title {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+#MainMenu, footer, header[data-testid="stHeader"] { visibility: hidden; height: 0; }
+
+/* ---------- SIDEBAR ---------- */
+section[data-testid="stSidebar"] {
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--glass-border);
+}
+section[data-testid="stSidebar"] * { color: var(--text-primary); }
+
+/* ---------- HERO HEADER ---------- */
+.hero-header {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+  margin-bottom: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brand-title {
+  font-size: 30px;
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+}
+.brand-tagline {
+  color: var(--text-secondary);
+  font-size: 15px;
+  margin-top: 4px;
+}
+.badge-pill {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* ---------- GLASS CARD ---------- */
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+}
+.glass-card h4 {
+  margin-top: 0;
+  color: var(--text-primary);
+}
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 6px 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---------- METRIC CARDS ---------- */
+.metric-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease;
+}
+.metric-card:hover { transform: translateY(-3px); }
+.metric-value {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 6px 0 2px 0;
+}
+.metric-label {
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- CIRCULAR PROGRESS ---------- */
+.circle-wrap { display:flex; flex-direction:column; align-items:center; gap: 8px; }
+.circle-caption { color: var(--text-secondary); font-size: 13px; font-weight: 600; }
+
+/* ---------- SKILL BADGES ---------- */
+.skill-badge {
+  display: inline-block;
+  padding: 7px 14px;
+  border-radius: 999px;
+  margin: 4px 6px 4px 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+.skill-matched {
+  background: rgba(52, 211, 153, 0.14);
+  color: var(--success);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+}
+.skill-missing {
+  background: rgba(251, 113, 133, 0.12);
+  color: var(--danger);
+  border: 1px solid rgba(251, 113, 133, 0.35);
+}
+.skill-recommend {
+  background: rgba(124, 92, 255, 0.14);
+  color: var(--accent);
+  border: 1px solid rgba(124, 92, 255, 0.35);
+}
+
+/* ---------- UPLOAD CARD ---------- */
+.upload-card {
+  border: 1.5px dashed var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 26px;
+  text-align: center;
+  background: var(--glass-bg);
+}
+
+/* ---------- CHAT UI (native st.chat_message is styled above; these are
+   kept only in case a future custom layout needs a manual bubble) ---------- */
+
+/* ---------- STREAMLIT WIDGET OVERRIDES ---------- */
+/* Reskin st.container(border=True) as a glass card. This is the ONLY
+   reliable way to put a real card behind interactive widgets in Streamlit
+   (wrapping widgets with raw <div> markdown does not nest them and leaves
+   an empty floating box, so avoid that pattern anywhere in main.py). */
+div[data-testid="stVerticalBlockBorderWrapper"] {
+  background: var(--glass-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: var(--radius-lg) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow);
+}
+div[data-testid="stVerticalBlockBorderWrapper"] > div {
+  border-radius: var(--radius-lg) !important;
+}
+
+/* Native chat message bubbles (st.chat_message) */
+div[data-testid="stChatMessage"] {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 4px 6px;
+  margin-bottom: 10px;
+  box-shadow: var(--shadow);
+}
+div[data-testid="stChatMessageAvatarUser"] {
+  background: linear-gradient(120deg, var(--accent), var(--accent-2)) !important;
+}
+div[data-testid="stChatInput"] textarea {
+  background: var(--input-bg) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-md) !important;
+  border: 1px solid var(--glass-border) !important;
+}
+
+.stTextInput input, .stTextArea textarea {
+  background: var(--input-bg) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-sm) !important;
+  border: 1px solid var(--glass-border) !important;
+}
+.stButton > button {
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+  border: none !important;
+  background: linear-gradient(120deg, var(--accent), var(--accent-2)) !important;
+  color: white !important;
+  padding: 8px 22px !important;
+  box-shadow: 0 4px 16px rgba(124, 92, 255, 0.35) !important;
+  transition: transform 0.15s ease !important;
+}
+.stButton > button:hover { transform: translateY(-2px); }
+.stButton > button:disabled { opacity: 0.5 !important; }
+
+div[data-testid="stFileUploader"] section {
+  background: var(--glass-bg) !important;
+  border: 1.5px dashed var(--glass-border) !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.stProgress > div > div { background: linear-gradient(90deg, var(--accent), var(--accent-2)) !important; }
+
+div[data-testid="stExpander"] {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+}
+
+hr { border-color: var(--glass-border) !important; }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb { background: var(--glass-border); border-radius: 8px; }

@@ -1,0 +1,26 @@
+# Environment
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Data / uploads
+uploads/*
+!uploads/.gitkeep
+data/*.db
+
+# OS/IDE
+.DS_Store
+.vscode/
+.idea/
+
+.env
